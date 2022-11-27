@@ -97,9 +97,10 @@ def main():
         elif choice == 'c':
             # checkout
             print('Please log in to check out')
-            if u.login(users):
+            found, username = u.login(users)
+            if found==True:
                 total = u.checkout(cart)
-                u.reward_points(cart, total)
+                u.reward_points(cart, total, username, users)
             else:
                 u.login(users)
         elif choice == 'e':

@@ -116,7 +116,7 @@ def checkout(cart):
 
     print('Games purchased:')
     for k in cart:
-        print(cart[k][0])
+        print(k)
 
     print('Your total is: {:.2f}'.format(total))
 
@@ -136,7 +136,7 @@ def login(users):
             if username in users:
                 if password == users[username][0]:
                     print('You have successfully logged in, Your point total is', users[username][1])
-                    return True
+                    return True, username
                 else:
                     print('Incorrect password, please try again')
 
@@ -158,7 +158,7 @@ def login(users):
             print('Invalid Selection.')
 
 
-def reward_points(cart, total):
+def reward_points(username, users, cart, total, points):
     """ Function calculates the number of reward points by multiplying each item in cart by 5.
         If user opts to apply points, subtracts point value from item total."""
     i = ''
