@@ -1,0 +1,11 @@
+Slime Rancher, Adventure, 19.99, macOS, 1
+Terraria, Adventure, 9.99, Windows, 2
+Stardew Valley, Casual, 14.99, Switch, 3
+Brotato, Casual, 4.99, Linux, 4
+Pico Park, Platformer, 4.99, Gamecube, 5
+Hollow Knight, Platformer, 14.99, macOS, 6
+Rimworld, Strategy, 34.99, Windows, 7
+Stellaris, Strategy, 39.99, Switch, 8
+Inscryption, Deckbuilding, 19.99, Linux, 9
+Slay The Spire, Deckbuilding, 24.99, Gamecube, 10
+Animal Crossing, Simulation, 59.99, Switch, 11
