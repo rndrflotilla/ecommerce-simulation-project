@@ -112,7 +112,7 @@ def checkout(cart):
         returns: total """
     total = 0
     for k in cart:
-        total += cart[k][1]
+        total += float(cart[k][1]) * cart[k][-1]
 
     print('Games purchased:')
     for k in cart:
