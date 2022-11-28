@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a3a4936-846c-441b-94b8-63fa09489f79" name="Changes" comment="" />
+    <list default="true" id="1a3a4936-846c-441b-94b8-63fa09489f79" name="Changes" comment="Merge remote-tracking branch 'mini-game-store-project/main'&#10;&#10;Changes by srubb, rndrflotilla, cclaps - &#10;&#10;Changes to reward_points(). Function now indexes cart correctly. Cleaned up formatting.&#10;Changes to cart(). Function was incorrectly displaying the number of items in cart." />
+    <list id="fdfc9e41-aaea-4c46-8555-a9175103aa93" name="Changes by srubb" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
