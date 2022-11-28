@@ -4,7 +4,22 @@ def main():
     import utility as u  # import utility file
 
     items = u.build_dict()  # read file / build dict function
-
+    print("""                                                            
+             /&&&&&&&&&                       &&&&&&&&\         
+             &&&&&&&&&&                       &&&&&&&&&&        
+          &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&     
+         &&&&&& == &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& ^^ &&&&&    
+        &&&& == && == &&&&& > &&&&&&&& < &&&& [] &&&&& oo &&&   
+        &&&&&&& == &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& XX &&&&&&&&  
+        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&  
+        &&&&&&&&&&&&&&&&(((((&&&&&&&&&&&&&)))))&&&&&&&&&&&&&&&&  
+        &&&&&&&&&&&&&&&(((((((&&&&&&&&&&))))))))&&&&&&&&&&&&&&&  
+        &&&&&&&&&&&&&&&&(((((&&&       &&&)))))&&&&&&&&&&&&&&&&  
+        &&&&&&&&&&&&&   &&&&&             &&&&&  &&&&&&&&&&&&&&  
+        &&&&&&&&&&&&                               &&&&&&&&&&&&  
+         &&&&&&&&&                                 &&&&&&&&&&   
+           &&&&&&                                     &&&&&&     
+        """)
     cart = {}
     users = {'srubb':['1234', 100], 'cclaps':['123', 90], 'pgiffen':['123', 70]}
     choice = ''
@@ -97,10 +112,9 @@ def main():
         elif choice == 'c':
             # checkout
             print('Please log in to check out')
-            found, username = u.login(users)
-            if found==True:
+            if u.login(users):
                 total = u.checkout(cart)
-                u.reward_points(cart, total, username, users)
+                u.reward_points(cart, total)
             else:
                 u.login(users)
         elif choice == 'e':
