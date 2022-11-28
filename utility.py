@@ -1,11 +1,11 @@
 def menu():
-    print('***MENU***\n[s]Search\n[d]Featured game of the day\n[c]Checkout\n[e]Exit')
+    print('\nMENU\n'.ljust(40, '-'), '\n[s]Search\n[d]Featured game of the day\n[c]Checkout\n[e]Exit')
     choice = input('Make a selection: ').lower()
     return choice
 
 
 def search_menu():
-    print('***SEARCH***\n[n]By name\n[g]By genre\n[c]By cost\n[p]By platform\n[c]Cancel')
+    print('\nSEARCH\n'.ljust(40, '-'), '\n[n]By name\n[g]By genre\n[c]By cost\n[p]By platform\n[c]Cancel')
     choice = input('Choose how you would like to search: ').lower()
     return choice
 
@@ -89,20 +89,20 @@ def featured_game(items, cart):
     games = []
     for k in items:
         games.append(k)
-    num = random.randint(0, len(games))
-    print("Today's featured game is {}!".format(games[num]))
+    num = random.randint(0, len(games)-1)
+    print("\nToday's featured game is {}!".format(games[num]))
 
     for k in items.keys():
         if games[num] == k:
             x = k
             print(k, items[k])
 
-    choice = input('Add {} to cart? (y/n)'.format(games[num])).lower()
+    choice = input('\nAdd {} to cart? (y/n) '.format(games[num])).lower()
     if choice == 'y':
         quantity = int(input('Enter quantity: '))
         cart[x] = items[x]
         cart[x].append(int(quantity))
-        print('{} of {} added to your cart'.format(quantity, x))
+        print('\n{} of {} added to your cart.\nReturning to menu...'.format(quantity, x))
         return cart
 
 
@@ -113,12 +113,11 @@ def checkout(cart):
     total = 0
     for k in cart:
         total += float(cart[k][1]) * cart[k][-1]
+    print('\nItems in cart:')
 
-    print('Games purchased:')
     for k in cart:
         print(k)
-
-    print('Your total is: {:.2f}'.format(total))
+    print('\nYour total is: {:.2f}'.format(total))
 
     return total
 
@@ -128,51 +127,63 @@ def login(users):
         from exiting login menu until they are successfully logged in. """
     found = False
     while not found:
-        print('***LOGIN MENU***\nLogin [l]\nAdd New Account [a]')
+        print('\nLOGIN MENU\n'.ljust(40, '-'), '\nLogin [l]\nAdd New Account [a]')
         selection = input('Make a selection: ')
         if selection == 'l':
             username = input('Enter your username: ')
             password = input('Enter your password: ')
             if username in users:
                 if password == users[username][0]:
-                    print('You have successfully logged in, Your point total is', users[username][1])
+                    print('\nYou have successfully logged in. \n Total reward points: ', str(round(users[username][-1])))
                     return True, username
                 else:
-                    print('Incorrect password, please try again')
+                    print('\nIncorrect password, please try again.')
 
             else:
-                print('Incorrect username, please try again')
+                print('\nIncorrect username, please try again.')
 
         elif selection == 'a':
-            username = input('Enter new username: ')
+            username = input('\nEnter new username: ')
             if username in users:
-                print('Username already taken, please enter different username')
-
+                print('Username taken, please enter alternate username.')
             else:
                 points = 0
                 password = input('Enter new password: ')
                 users[username] = [password, points]
-                print('Account for {} created, please login'.format(username))
-
+                print('Account "{}" created.'.format(username))
         else:
-            print('Invalid Selection.')
+            print('Invalid Selection. Please try again.')
 
 
-def reward_points(username, users, cart, total, points):
+def reward_points(username, users, cart, total):
     """ Function calculates the number of reward points by multiplying each item in cart by 5.
         If user opts to apply points, subtracts point value from item total."""
-    i = ''
-    for i in cart:
-        i = len(cart) * 5
-    user_input = ''
-    while user_input != 'n':
+    points = users[username][1]
+    for item in cart:
+        points += cart[item][-1] * 5
+    if points > 0 and total > 0:
         user_input = input("Would you like to apply reward points to this purchase? (y/n) ")
         if user_input == 'y':
-            if i <= int(1):
-                print("Your total rewards value is: " + str(i) + '\n')
-                point_value = float(i * float(.5))
-                total = total - (point_value*.1)
-                print("Your new total is: " + str(total) + '\n')
-            else:
-                print("Your total rewards value is 0. ")
-        return total
+            print("Your total rewards value is: " + str(points) + '\n')
+            if total-(points * .01) <= .1:
+                max_points = total * .01
+                points -= max_points
+                users[username][-1] = points
+                total = 0
+                print("Your new total is: " + str(round(total, 2)) + '\n')
+                choice = input('Submit transaction? (y/n) ')
+                if choice == 'y':
+                    print("Transaction submitted. Thanks for shopping with us.")
+                    print("Your remaining points are: {:.2f}".format(users[username][-1]))
+                    quit()
+        else:
+            total = total - (points * .01)
+            points = 0
+            users[username][-1] = points
+            choice = input('Submit transaction? (y/n) ')
+            if choice == 'y':
+                print("Transaction submitted. Thanks for shopping with us.")
+                print("Your remaining points are: {:.2f}".format(users[username][-1]))
+                quit()
+            return total
+    return total
