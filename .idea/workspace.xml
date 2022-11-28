@@ -25,6 +25,14 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task id="LOCAL-00001" summary="Merge remote-tracking branch 'mini-game-store-project/main'&#10;&#10;Changes by srubb, rndrflotilla, cclaps - &#10;&#10;Changes to reward_points(). Function now indexes cart correctly. Cleaned up formatting.&#10;Changes to cart(). Function was incorrectly displaying the number of items in cart.">
+      <created>1669602852477</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669602852477</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -37,5 +45,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge remote-tracking branch 'mini-game-store-project/main'&#10;&#10;Changes by srubb, rndrflotilla, cclaps - &#10;&#10;Changes to reward_points(). Function now indexes cart correctly. Cleaned up formatting.&#10;Changes to cart(). Function was incorrectly displaying the number of items in cart." />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'mini-game-store-project/main'&#10;&#10;Changes by srubb, rndrflotilla, cclaps - &#10;&#10;Changes to reward_points(). Function now indexes cart correctly. Cleaned up formatting.&#10;Changes to cart(). Function was incorrectly displaying the number of items in cart." />
   </component>
 </project>
